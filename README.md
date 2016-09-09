@@ -1,51 +1,41 @@
 # Bootstrap Lite [![Build Status](https://img.shields.io/travis/bryanbraun/anchorjs/master.svg?style=flat)](https://maxgrebennikov.com/)
+======================
 
 A TinyMCE plugin for adding simply Bootstrap components in content.
 
 **[See Live Examples in the Documentation](http://bryanbraun.github.io/anchorjs#examples).**
 
-## Installation
+Authors
+-------
 
-Download AnchorJS using npm,
+ * Gerits Aurelien (Author-Developer) contact[at]aurelien-gerits[point]be
 
-```bash
-npm install anchor-js
-```
+###Screenshot
 
-or bower:
+![youtube-tinymce-1 2 0](https://cloud.githubusercontent.com/assets/356674/17137863/b977bf00-533d-11e6-9070-426c5131f75a.png)
 
-```bash
-bower install anchor-js --save-dev
-```
+###Installation
+ * Download the bootstraplite.zip archive
+ * Unzip archive in tinyMCE plugin directory (tiny_mce/plugins/)
 
-(or just [download it from github](https://github.com/bryanbraun/anchorjs/releases)).
-
-Then include the anchor.js file (or anchor.min.js) in your webpage.
-
+###Configuration
 ```html
-<script src="anchor.js"></script>
+<script type="text/javascript">
+tinymce.init({
+	selector: "textarea",
+	plugins: [
+			"advlist autolink lists link image charmap print preview anchor",
+			"searchreplace visualblocks code fullscreen",
+			"insertdatetime media table contextmenu paste bootstraplite"
+			],
+	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| bootstraplite"
+	});
+</script>
 ```
 
-You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](http://www.jsdelivr.com/projects/anchorjs).
+###Requirements
 
-##Usage
-See **[the Documentation](http://bryanbraun.github.io/anchorjs#basic-usage)** for detailed instructions.
-
-## Compatibility
-Currently Supports: IE9+ and modern browsers
-
-## Contributing [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
-To contribute:
-
-1. Fork/Clone the repo.
-2. Make your changes.
-3. Write tests as needed.
-4. Run tests locally to confirm everything is working:
-   - Install phantomjs: `brew install phantomjs`
-   - Install test modules: Run `npm install`
-   - Run all tests: `npm test`
-5. Minify the code: `npm run release`
-6. Submit a Pull Request.
+This was written for TinyMCE version 4.1.10 (2015-05-05)
 
 ## License
 Licensed with the [MIT License](http://opensource.org/licenses/MIT).
