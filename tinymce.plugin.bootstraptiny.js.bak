@@ -1,0 +1,75 @@
+// https://www.tinymce.com/docs/advanced/creating-a-plugin/
+
+tinymce.PluginManager.add('bootstraptiny', function(editor, url) {
+
+					editor.addButton('mybutton', { 
+						type: 'menubutton',
+						text: 'Bootstrap',
+						icon: true,
+						image: 'https://cdn1.iconfinder.com/data/icons/simple-icons/16/bootstrap-16-black.png', 
+						menu: [{
+							text: 'Btn',
+							icon: true,
+							image: 'https://cdn0.iconfinder.com/data/icons/communication-technology/500/button_push-32.png',
+							menu: [
+								{ text: 'default', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-default" href="#">'+selection+'</a>'); } },
+								{ text: 'primary', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-primary" href="#">'+selection+'</a>'); } },
+								{ text: 'success', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-success" href="#">'+selection+'</a>'); } },
+								{ text: 'info', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-info" href="#">'+selection+'</a>'); } },
+								{ text: 'warning', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-warning" href="#">'+selection+'</a>'); } },
+								{ text: 'danger', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<a class="btn btn-danger" href="#">'+selection+'</a>'); } },
+							]
+						}, {
+							text: 'Labels',
+							image: 'https://cdn4.iconfinder.com/data/icons/iconsweets/32/tag.png',
+							menu: [
+								{ text: 'default', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-default">'+selection+'</span>'); } },
+								{ text: 'primary', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-primary">'+selection+'</span>'); } },
+								{ text: 'success', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-success">'+selection+'</span>'); } },
+								{ text: 'info', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-info">'+selection+'</a>'); } },
+								{ text: 'warning', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-warning">'+selection+'</span>'); } },
+								{ text: 'danger', onclick: function() { var selection = tinyMCE.activeEditor.selection.getContent(); if(selection=="") { selection = "text"; } editor.insertContent('<span class="label label-danger">'+selection+'</span>'); } },
+							]
+						}, {
+							text: 'Alert',
+							image: 'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/unchecked_checkbox.png', 
+							onclick: function() {
+								var selection = tinyMCE.activeEditor.selection.getContent();
+								if(selection=="") { selection = "text"; }
+								editor.insertContent('<div class="alert alert-success">'+selection+'</div>');
+							}
+						}, {
+							text: 'Badge',
+							image: 'https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/rounded_rectangle.png', 
+							onclick: function() {
+								var selection = tinyMCE.activeEditor.selection.getContent();
+								if(selection=="") { selection = "text"; }
+								editor.insertContent('<span class="badge">'+selection+'</span>');
+							}
+						}, {
+							text: 'btn',
+							onclick: function() {
+								var selection = tinyMCE.activeEditor.selection.getContent();
+								// Open window
+								editor.windowManager.open({
+										title: 'Example plugin',
+												body: [
+														{type: 'container', html: "Hello world!"},
+														{type: 'textbox', name: 'text', label: 'Text', value: selection },
+														{type: 'textbox', name: 'link', label: 'link' },
+														//{type: 'checkbox', name: 'color', label: 'Btn', value: 'btn-info'},
+														{type: 'listbox', name: 'color2', label: 'Btn2', values : [
+															{ text: 'btn-info', value: 'btn-info' },
+															{ text: 'btn-danger', value: 'btn-danger', selected: true }
+														]} 
+												],
+												onsubmit: function(e) {
+														// Insert content when the window form is submitted
+														editor.insertContent('<a class="btn '+e.data.color2+'" href="'+e.data.link+'">'+e.data.text+'</a>');
+												}
+								});
+							}
+						}]
+					});
+	
+});
