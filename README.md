@@ -1,13 +1,12 @@
 # Bootstrap Lite [![Build Status](https://img.shields.io/travis/bryanbraun/anchorjs/master.svg?style=flat)](https://maxgrebennikov.com/)
 
-A TinyMCE plugin for adding simply Bootstrap components in content. Work with CDN.
+A TinyMCE plugin for simply insert Bootstrap components in text. Work with CDN.
 
-Authors
--------
+## Author
 
  * Max Grebennikov (Author-Developer) maxgreb@gmail.com
 
-###Screenshot
+###Screenshots
 
 ![Bootstrap Lite panel](https://i.imgsafe.org/2879b3df9a.jpg)
 ![Bootstrap Lite modal window](https://i.imgsafe.org/2879c9f76e.jpg)
