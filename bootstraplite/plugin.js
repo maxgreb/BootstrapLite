@@ -1,7 +1,7 @@
 /**
  * TinyMCE BootstrapLite plugin
  *
- * @version 1.1
+ * @version 1.2
  * @author Max Grebennikov - maxgreb@gmail.com
  *
  */
@@ -12,7 +12,7 @@
 'use strict';
 
 tinymce.PluginManager.add('bootstraplite', function(editor, url) {
-	console.log('BootstrapLite');
+	//console.log('BootstrapLite');
 	var bsItems = [];
 
 	// Create and render a buttongroup with buttons
@@ -27,11 +27,11 @@ tinymce.PluginManager.add('bootstraplite', function(editor, url) {
 			onclick: function() {
 				// Open window
 				editor.windowManager.open({
-						title: 'About',
+						title: 'About plugin',
 						width: 400,
 						height: 100,
 						body: [
-								{ type: 'container', html: '<h4 style="font-size:1.4em!important;font-weight:bold!important;">Bootstrap Lite</h4><br/>\r\n<a target="_blank" href="https://github.com/maxgreb/BootstrapLite">GitHub</a><br/><br/><a target="_blank" href="http://maxgrebennikov.com">www.MaxGrebennikov.com</a>, <a href="mailto:maxgreb@gmail.com">email</a><br/>' },
+								{ type: 'container', html: '<h4 style="font-size:1.4em!important;font-weight:bold!important;">Bootstrap Lite 1.2</h4><br/><a target="_blank" href="https://github.com/maxgreb/BootstrapLite">GitHub</a>' },
 						]
 				});
 			}
@@ -48,7 +48,9 @@ tinymce.PluginManager.add('bootstraplite', function(editor, url) {
 		tooltip: 'Insert/edit Button',
 		onclick: function() {
 			var selection = tinyMCE.activeEditor.selection.getContent();
+			var href = jQuery(tinyMCE.activeEditor.selection.getNode()).attr('href');
 			if(selection=="") { selection = "text"; }
+			if(href=="") { href = "http://"; }
 			// Open window
 			editor.windowManager.open({
 					title: 'Insert/edit Bootstrap Button',
@@ -57,7 +59,7 @@ tinymce.PluginManager.add('bootstraplite', function(editor, url) {
 					body: [
 							//{type: 'container', html: "Hello world!"},
 							{type: 'textbox', name: 'text', label: 'Text', value: selection },
-							{type: 'textbox', name: 'link', label: 'Link' },
+							{type: 'textbox', name: 'link', label: 'Link', value: href },
 							//{type: 'checkbox', name: 'color', label: 'Btn', value: 'btn-info'},
 							{type: 'listbox', name: 'color2', label: 'Style', values : [
 								{ text: 'default', value: 'btn-default' },
@@ -108,13 +110,11 @@ tinymce.PluginManager.add('bootstraplite', function(editor, url) {
 								{ text: 'circle', value: 'img-circle' },
 								{ text: 'thumbnail', value: 'img-thumbnail' },
 							]},
-							{type: 'listbox', name: 'responsive', label: 'Responsive', values : [
-								{ text: 'Yes', value: 'img-responsive' },
-								{ text: 'No', value: '' }
-							]},
-							{type: 'container', html: '<div style="width:200px;height:200px;overflow:hidden;"><center><img id="btimg" src="'+src+'" style="max-width:100%!important;1height:100px!important;margin-left:auto;margin-right:auto;"></center></div>'},
+							{type: 'checkbox', name: 'responsive', label: 'Responsive', text: 'Responsive', checked: true },
+							{type: 'container', html: '<div style="width:358px;height:200px;overflow:hidden;"><center><img id="btimg" src="'+src+'" style="max-width:100%!important;1height:100px!important;margin-left:auto;margin-right:auto;"></center></div>'},
 					],
 					onsubmit: function(e) {
+							if(e.data.responsive == true) { e.data.responsive = "img-responsive"; } else { e.data.responsive = ""; }
 							// Insert content when the window form is submitted
 							editor.insertContent('<img class="'+e.data.style+' '+e.data.responsive+'" src="'+e.data.image+'" alt="'+e.data.alt+'"/>');
 					}
@@ -230,13 +230,10 @@ tinymce.PluginManager.add('bootstraplite', function(editor, url) {
 								{ text: 'warning', value: 'panel-warning' },
 								{ text: 'danger', value: 'panel-danger' }
 							]},
-							{type: 'listbox', name: 'footer', label: 'Footer', values : [
-								{ text: 'Yes', value: 'panel-footer' },
-								{ text: 'No', value: '' }
-							]}
+							{type: 'checkbox', name: 'footer', label: 'Footer', text: '', checked: true },
 					],
 					onsubmit: function(e) {
-							if(e.data.footer=="panel-footer") { var footer = '<div class="panel-footer">Panel footer</div>\r\n'; } else { var footer = ''; }
+							if(e.data.footer == true) { var footer = '<div class="panel-footer">Panel footer</div>\r\n'; } else { var footer = ''; }
 							// Insert content when the window form is submitted
 							editor.insertContent('<div class="panel '+e.data.color+'">\r\n<div class="panel-heading">\r\n<h3 class="panel-title">Panel title</h3>\r\n</div>\r\n<div class="panel-body">'+e.data.text+'</div>\r\n '+footer+' </div>');
 					}
