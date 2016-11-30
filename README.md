@@ -4,7 +4,7 @@ A TinyMCE plugin for simply insert Bootstrap components in text. Work with CDN.
 
 ## Author
 
- * Max Grebennikov (Author-Developer) maxgreb@gmail.com
+ * Max Grebennikov (Author-Developer) maximgreb@gmail.com
 
 ###Screenshots
 
