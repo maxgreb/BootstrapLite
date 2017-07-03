@@ -2,20 +2,16 @@
 
 A TinyMCE plugin for simply insert Bootstrap components in text. Work with CDN.
 
-## Author
-
- * Max Grebennikov (Author-Developer) maximgreb@gmail.com
-
-###Screenshots
+### Screenshots
 
 ![Bootstrap Lite panel](/screens/bootstraplite_ss01.jpg)
-![Bootstrap Lite modal window](https://i.imgsafe.org/2879c9f76e.jpg)
+![Bootstrap Lite modal window](/screens/bootstraplite_ss02.jpg)
 
-###Installation
+### Installation
  * Download the bootstraplite.zip archive
  * Unzip archive in tinyMCE plugin directory (tiny_mce/plugins/)
 
-###Configuration
+### Configuration
 ```html
 <script type="text/javascript">
 tinymce.init({
@@ -36,3 +32,6 @@ This was written for TinyMCE version 4.1.10 (2015-05-05)
 
 ## License
 Licensed with the [MIT License](http://opensource.org/licenses/MIT).
+
+## Author
+ * Max Grebennikov (Author-Developer) maximgreb@gmail.com
