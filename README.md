@@ -26,7 +26,7 @@ tinymce.init({
 </script>
 ```
 
-###Requirements
+### Requirements
 
 This was written for TinyMCE version 4.1.10 (2015-05-05)
 
