@@ -8,7 +8,7 @@ A TinyMCE plugin for simply insert Bootstrap components in text. Work with CDN.
 
 ###Screenshots
 
-![Bootstrap Lite panel](https://i.imgsafe.org/2879b3df9a.jpg)
+![Bootstrap Lite panel](/screens/bootstraplite_ss01.jpg)
 ![Bootstrap Lite modal window](https://i.imgsafe.org/2879c9f76e.jpg)
 
 ###Installation
